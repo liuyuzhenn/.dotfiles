@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 if has_key(g:plugs, "vimtex")
 	let g:tex_flavor= 'latex'
   let g:vimtex_syntax_enabled = 0
@@ -10,7 +10,7 @@ if has_key(g:plugs, "vimtex")
 	let g:tex_conceal='abdmg'
 	set conceallevel=1
 endif
-]]
+]])
 --let g:vimtex_view_general_viewer = 'C:\Users\23792\AppData\Local\SumatraPDF\SumatraPDF.exe'
 --let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 --let g:vimtex_view_general_options

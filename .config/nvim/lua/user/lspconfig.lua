@@ -84,7 +84,6 @@ lspconfig.cmake.setup({
 lspconfig.texlab.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
-	--root_dir = util.find_git_ancestor,
 	root_dir = util.root_pattern("*.tex"),
 	cmd = { "texlab" }
 })

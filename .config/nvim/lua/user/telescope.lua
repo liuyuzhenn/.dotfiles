@@ -64,7 +64,7 @@ telescope.setup({
 		find_files = {
 			theme = "dropdown",
 			previewer = false,
-			find_command = { "fdfind" },
+			find_command = { "fd" },
 			prompt_prefix = "🔍",
 		},
 	},
