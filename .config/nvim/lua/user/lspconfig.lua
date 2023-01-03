@@ -119,6 +119,10 @@ lspconfig.clangd.setup({
 	on_attach = on_attach,
 })
 
+lspconfig.html.setup({
+	on_attach = on_attach,
+})
+
 lspconfig.bashls.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
