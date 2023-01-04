@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
 let g:mkdp_auto_start = 0
@@ -35,7 +35,7 @@ let g:mkdp_open_ip = ''
 " valid: `/path/with\ space/xxx`
 " invalid: `/path/with\\ space/xxx`
 " default: ''
-let g:mkdp_browser = 'chrome'
+let g:mkdp_browser = 'firefox'
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0
@@ -96,4 +96,4 @@ let g:mkdp_filetypes = ['markdown']
 
 
 nmap <F9> <Plug>MarkdownPreviewToggle
-]]
+]])
