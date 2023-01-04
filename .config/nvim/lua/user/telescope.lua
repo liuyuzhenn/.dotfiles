@@ -74,7 +74,7 @@ telescope.setup({
 			--  * 'chrome'
 			--  * 'edge'
 			--  * 'firefox'
-			selected_browser = "chrome",
+			selected_browser = "edge",
 			-- Either provide a shell command to open the URL
 			url_open_command = nil,
 

@@ -335,7 +335,7 @@ handle_mime() {
         	try catdoc "$path" &&amp; { dump | trim | fmt -s -w $width; exit 0; }|| exit 1;;
 		# Docx documents:
 		docx)
-			try docx2txt < "$path" &&amp; { dump | trim | fmt -s -w $width; exit 0; }|| exit 1;;
+			try docx2txt "$path" &&amp; { dump | trim | fmt -s -w $width; exit 0; }|| exit 1;;
 		# Xlsx documents:
 		xlsx)
 			try xlsx2csv "$path" &&amp; { dump | trim | fmt -s -w $width; exit 0; }|| exit 1;;
