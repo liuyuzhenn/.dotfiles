@@ -1,5 +1,5 @@
 local ls = require("luasnip")
--- some shorthands...
+-- some shorthands...marke
 local s = ls.snippet
 local sn = ls.snippet_node
 local t = ls.text_node
@@ -61,17 +61,17 @@ local markdown = {
 		t("}"),
 		i(0),
 	}),
-	s({ trig = "sec" }, { t("# "), i(1), t({ "", "" }) }),
-	s({ trig = "ssec" }, { t("## "), i(1), t({ "", "" }) }),
-	s({ trig = "sssec" }, { t("### "), i(1), t({ "", "" }) }),
-	s({ trig = "url" }, { t("["), i(1, "text"),
-		t("]("),
-		c(2, {
+	s({ trig = "sec" }, { t("# "), i(1) }),
+	s({ trig = "ssec" }, { t("## "), i(1) }),
+	s({ trig = "sssec" }, { t("### "), i(1) }),
+	s(
+		{ trig = "url" },
+		{ t("["), i(1, "text"), t("]("), c(2, {
 			t("https://"),
 			t("http://"),
-			i(nil)
-		}),
-		i(3), t(")"), i(0) }),
+			i(nil),
+		}), i(3), t(")"), i(0) }
+	),
 	s({ trig = "tb(%d+)x(%d+)", regTrig = true, dscr = "generate table" }, {
 		-- pos, function, argnodes, user_arg1
 		d(1, function(args, snip, old_state, initial_text)

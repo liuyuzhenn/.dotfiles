@@ -20,7 +20,7 @@ gaps outer 0
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 14 
+font pango:monospace 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -41,11 +41,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id xrandr --output Virtual-1 --mode 2560x1440
-exec --no-startup-id fcitx5
-exec --no-startup-id picom -b --config ~/.config/picom.conf
-# exec killall polybar
-exec --no-startup-id polybar bar1
-exec --no-startup-id feh --bg-fill ~/.config/i3/wallpaper/macos-mojave-sand-dunes-mojave-desert-california-night-dark-5120x2880-4051.jpg
+exec --no-startup-id fcitx5 &
+exec --no-startup-id picom -b --config ~/.config/picom.conf &
+exec_always --no-startup-id killall polybar
+exec_always --no-startup-id polybar default &
+exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper/daniel-leone-v7daTKlZzaw-unsplash.jpg
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -63,7 +63,7 @@ tiling_drag modifier titlebar
 
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec alacritty -e ranger
-bindsym $mod+Shift+s exec microsoft-edge-beta
+bindsym $mod+Shift+s exec microsoft-edge-stable
 bindsym $mod+e exec nautilus
 
 # kill focused window
@@ -88,6 +88,7 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+bindsym $mod+n focus prev
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -117,6 +118,7 @@ bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+bindsym --whole-window  $mod+button2 floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -124,21 +126,24 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+bindsym $mod+Tab workspace next 
+bindsym $mod+Shift+Tab workspace prev 
+
 # focus the child container
 #bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+set $ws1 "1: Term"
+set $ws2 "2: Browser"
+set $ws3 "3: File"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10: Music"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -173,32 +178,62 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+	# These bindings trigger as soon as you enter the resize mode
 
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+	bindsym h resize shrink width 5 px or 5 ppt
+	bindsym j resize grow height 5 px or 5 ppt
+	bindsym k resize shrink height 5 px or 5 ppt
+	bindsym l resize grow width 5 px or 5 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+	# same bindings, but for the arrow keys
+	bindsym Left resize shrink width 5 px or 5 ppt
+	bindsym Down resize grow height 5 px or 5 ppt
+	bindsym Up resize shrink height 5 px or 5 ppt
+	bindsym Right resize grow width 5 px or 5 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+	# back to normal: Enter or Escape or $mod+r
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-for_window [class="gucharmap"] floating enable
-for_window [class="nautilus"] floating enable
+set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3lock -i ~/.dotfiles/.config/i3/wallpaper/daniel-leone-v7daTKlZzaw-unsplash-2560x1440.png, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+p mode "$mode_system"
+
+for_window [class="Gucharmap"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [class="netease-cloud-music"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="fcitx5-config-qt"] floating enable
+
+assign [class = "netease-cloud-music"] $ws10 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+# bar {
+# 	# output Virtual-1
+# 	tray_output primary
+# 	status_command i3status
+# 	position top
+# 	bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
+# 	colors {
+#         background #546590
+#         statusline #FFFFFF
+#     }
+# 	separator_symbol "|"
+# 	font pango:Hack Nerd Font 13
+# }

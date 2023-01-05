@@ -22,13 +22,28 @@ background-alt = #373B41
 foreground = #C5C8C6
 primary = #8ABEE7
 secondary = #F0C674
+foreground-alt = #111111
 alert = #A54242
 disabled = #707880
 
-[bar/bar1]
+[bar/default]
+bottom = true
+; font-0 = Siji:pixelsize=10;1
+; font-1 = Hack Nerd Font:size=12;style=Regular
+font-0 = Hack Nerd Font:size=12;style=Regular
+font-1 = Siji:pixelsize=13;2
+font-2 = Noto Color Emoji:scale=10;
+font-3 = WenQuanYi Zen Hei;style=Regular
+font-4 = Font Awesome 6 Free,Font Awesome 6 Free Solid:style=Solid
+font-5 = Font Awesome 6 Free,Font Awesome 6 Brands Solid:style=Regular
+
+modules-left = i3
+modules-center = xwindow
+modules-right = xkeyboard xbacklight cpu memory wlan pulseaudio battery date
+
 width = 100%
 height = 24pt
-radius = 8
+radius = 8 
 fixed-center = true
 
 dpi = 96
@@ -49,27 +64,80 @@ module-margin = 1
 separator = |
 separator-foreground = ${colors.disabled}
 
-font-0 = Hack Nerd Font;style=Regular
-
-modules-left = xworkspaces xwindow
-modules-right = pulseaudio xkeyboard memory cpu wlan battery date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 enable-ipc = true
 
-; tray-position = right
+tray-position = right
 
 ; wm-restack = generic
 ; wm-restack = bspwm
 ; wm-restack = i3
 
 ; override-redirect = true
+[module/github]
+type = internal/github
+
+; Accessing an access token stored in file
+
+; Accessing an access token stored in an environment variable
+token = ${env:GITHUB_ACCESS_TOKEN}
+
+; The github user for the token
+; Effectively required; otherwise the module uses a deprecated method of fetching
+; notifications, which has stopped working
+user = liuyuzhenn
+
+; Whether empty notifications should be displayed or not
+empty-notifications = true
+
+; Number of seconds in between requests
+interval = 10
+
+; Github API URL
+; Default: https://api.github.com/
+api-url = https://hub.example.org/api/v3/
+
+[module/menu-apps]
+type = custom/menu
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Commands will be executed using "/bin/sh -c $COMMAND"
+
+menu-0-0 = Browsers
+menu-0-0-exec = #menu-apps.open.1
+menu-0-1 = Multimedia
+menu-0-1-exec = #menu-apps.open.2
+
+menu-1-0 = Microsoft edge
+menu-1-0-exec = microsoft-edge-stable
+menu-1-1 = Firefox
+menu-1-1-exec = firefox
+
+menu-2-0 = Gimp
+menu-2-0-exec = gimp
+menu-2-1 = Import
+menu-2-1-exec = import ~/.tmp/latest-screenshot.png
+
+label-open = Apps
+label-close = x
+
+; Optional item separator
+; Default: none
+label-separator = |
 
 [module/xworkspaces]
 type = internal/xworkspaces
 
+label-active-font = 1
 label-active = %name%
 label-active-background = ${colors.background-alt}
 label-active-underline= ${colors.primary}
@@ -104,26 +172,64 @@ label-unmounted-foreground = ${colors.disabled}
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume-prefix = "VOL "
+use-ui-max = false
+interval = 2
+
+format-volume-prefix = ""
 format-volume-prefix-foreground = ${colors.primary}
-format-volume = <label-volume>
+; format-volume = <label-volume>
+format-volume = <ramp-volume> <label-volume>
 
-label-volume = %percentage%%
+label-volume = %percentage:2%%
 
-label-muted = muted
+label-muted = "  0%"
 label-muted-foreground = ${colors.disabled}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = ${colors.primary}
+
+; Right and Middle click
+click-right = pavucontrol
+; click-middle =
 
 [module/xkeyboard]
 type = internal/xkeyboard
-blacklist-0 = num lock
+; blacklist-0 = num lock
+; blacklist-1 = scroll lock
 
-label-layout = %layout%
-label-layout-foreground = ${colors.primary}
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+; format = <label-layout> <label-indicator>
+; format-spacing = 0
 
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+;   %icon%
+;   %variant% (New in version 3.6.0)
+; Default: %layout%
+label-layout =
+; label-layout-padding = 2
+; label-layout-background = #bc99ed
+; label-layout-foreground = #000000
+
+label-indicator-foreground = #000000
+label-indicator-background = ${colors.primary}
 label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-foreground = ${colors.background}
-label-indicator-background = ${colors.secondary}
+label-indicator-margin = 0
+
+; label-indicator-on-capslock = " %{F#8ABEE7}%{T5}%{T-}%{F-} Cap"
+; label-indicator-off-capslock = " %{F#8ABEE7}%{T5}%{T-}%{F-} Cap"
+
+; label-indicator-on-numlock = " %{F#8ABEE7}%{T5}%{T-}%{F-} Num"
+; label-indicator-off-numlock = " %{F#8ABEE7}%{T5}%{T-}%{F-} Num"
+
+; label-indicator-on-scrolllock =
+; label-indicator-off-scrolllock =
 
 [module/memory]
 type = internal/memory
@@ -135,7 +241,7 @@ label = %percentage_used:2%%
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU "
+format-prefix = "  "
 format-prefix-foreground = ${colors.primary}
 label = %percentage:2%%
 
@@ -160,8 +266,8 @@ label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
 type = internal/date
 interval = 1
 
-date = %Y-%m-%d %H:%M
-date-alt = %Y-%m-%d %H:%M:%S
+date = %a %H:%M
+date-alt = %Y-%m-%d %a %H:%M:%S
 
 label = %date%
 label-foreground = ${colors.primary}
@@ -172,33 +278,210 @@ type = internal/battery
 battery = BATX
 adapter = ADP1
 full-at = 100
+low-alt = 20
+color-discharging = #ffb52a
+color-charging = #92fe92
+color-low = #ff3377
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-low = <animation-low> <label-low>
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-charging-underline = ${self.color-charging}
+format-full-underline = ${self.color-charging}
+; format-discharging-underline = ${self.color-discharging}
+format-low-underline = ${self.color-low}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+label-charging = %percentage:2%%
+label-discharging = %percentage:2%%
+label-full = %percentage:2%%
+label-low = %percentage:2%%
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.primary}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-capacity-0 = 
+animation-capacity-1 = 
+animation-capacity-2 = 
+animation-capacity-3 = 
+animation-capacity-4 = 
+animation-charging-foreground = ${colors.color-charging}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+; animation-discharging-0 = 
+; animation-discharging-1 = 
+; animation-discharging-2 = 
+; animation-discharging-3 = 
+; animation-discharging-4 = 
+; animation-discharging-foreground = ${self.color-discharging}
+; animation-discharging-framerate = 750
+
+animation-low-0 = !
+animation-low-1 = 
+animation-low-foreground = ${self.color-low}
+animation-low-framerate = 500
+
+[module/i3]
+type = internal/i3
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; Show urgent workspaces regardless of whether the workspace is actually hidden
+; by pin-workspaces.
+;
+; Default: false
+; New in version 3.6.0
+show-urgent = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = false
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+wrapping-scroll = false
+
+; Set the scroll cycle direction
+; Default: true
+reverse-scroll = false
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+; ws-icon-[0-9]+ = <label>;<icon>
+; NOTE: The <label> needs to match the name of the i3 workspace
+; Neither <label> nor <icon> can contain a semicolon (;)
+ws-icon-0 = Music;%{T5}🎵%{T-}
+ws-icon-1 = Term;%{T5}%{T-}
+ws-icon-2 = Browser;%{T5}🌐%{T-}
+ws-icon-3 = File;%{T5}%{T-}
+; ws-icon-3 = 4;
+; ws-icon-4 = 5;
+ws-icon-default = %{T5}%{T-}
+; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+; you must also define a ws-icon-5.
+; NOTE: Icon will be available as the %icon% token inside label-*
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.secondary}
+label-mode-foreground = ${colors.foreground-alt}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-focused = %icon% %index%
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-unfocused = %icon% %index%
+label-unfocused-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-visible = %icon% %index%
+label-visible-underline = #555555
+label-visible-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 2
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = ${colors.disabled}
+
+[module/xbacklight]
+type = internal/xbacklight
+
+; XRandR output to get get values from
+; Default: the monitor defined for the running bar
+output = Virtual-1
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <label>
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+
+; Create scroll handlers used to set the backlight value
+; Default: true
+enable-scroll = false
 
 [settings]
 screenchange-reload = true

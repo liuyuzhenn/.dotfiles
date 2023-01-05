@@ -117,7 +117,7 @@ telescope.setup({
 				-- argument emoji is a table.
 				-- {name="", value="", cagegory="", description=""}
 				vim.fn.setreg("*", emoji.value)
-				print([[Press p or "*p to paste this emoji]] .. emoji.value)
+				-- print([[Press p or "*p to paste this emoji]] .. emoji.value)
 				-- insert emoji when picked
 				vim.api.nvim_put({ emoji.value }, "c", false, true)
 			end,
@@ -134,6 +134,7 @@ vim.keymap.set("n", "<leader>fh", builtin.commands, {})
 vim.keymap.set("n", "<leader>ft", builtin.treesitter, {})
 vim.keymap.set("n", "<leader>fc", builtin.grep_string, {})
 vim.keymap.set("n", "<leader>fb", extensions.file_browser.file_browser, {})
+vim.keymap.set("n", "<leader>em", extensions.emoji.emoji, {})
 vim.keymap.set("n", "<leader>fm", extensions.bookmarks.bookmarks, {})
 vim.keymap.set("n", "<leader>fs", "<Cmd>SearchSession<CR>", {})
 
