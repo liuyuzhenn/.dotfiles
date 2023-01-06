@@ -88,7 +88,8 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-bindsym $mod+n focus prev
+bindsym $mod+p focus prev
+bindsym $mod+n focus next
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -223,6 +224,7 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="gnome-font-viewer"] floating enable
 for_window [class="wemeetapp"] floating enable
 for_window [class="EasyConnect"] floating enable
+for_window [class="qq"] floating enable
 
 assign [class = "netease-cloud-music"] $ws10 
 assign [class = "Microsoft-edge"] $ws2 
