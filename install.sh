@@ -2,10 +2,9 @@
 
 PWD=`pwd`
 CONFIG_DIR=$PWD/.config
-CONFIG_ITEMS=`ls $CONFIG_DIR`
-FILES=`ls -a --ignore="*.sh" --ignore="." --ignore=".." --ignore=".git*" --ignore="*.md" --ignore=".config"`
+FILES=
 
-for f in $CONFIG_ITEMS
+for f in $(ls $CONFIG_DIR)
 do
 	dst=~/.config/$f
 	src=$CONFIG_DIR/$f
@@ -24,7 +23,7 @@ do
 	ln -s $src $dst
 done
 
-for f in $FILES
+for f in `ls -a --ignore="*.sh" --ignore="." --ignore=".." --ignore=".git*" --ignore="*.md" --ignore=".config"`
 do
 	dst=~/$f
 	src=$PWD/$f
