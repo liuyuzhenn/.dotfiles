@@ -64,7 +64,7 @@ telescope.setup({
 		find_files = {
 			theme = "dropdown",
 			previewer = false,
-			find_command = { "fd" },
+			find_command = { "fd", "-H", "-E", ".git" },
 			prompt_prefix = "🔍",
 		},
 	},

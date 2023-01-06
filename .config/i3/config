@@ -15,7 +15,7 @@ new_window none
 new_float normal
 hide_edge_borders both
 
-gaps inner 4
+gaps inner 5
 gaps outer 0
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -42,9 +42,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id xrandr --output Virtual-1 --mode 2560x1440
 exec --no-startup-id fcitx5 &
-exec --no-startup-id picom -b --config ~/.config/picom.conf &
-exec_always --no-startup-id killall polybar
-exec_always --no-startup-id polybar default &
+exec --no-startup-id picom -b --config ~/.config/picom.conf
+exec_always . ~/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper/daniel-leone-v7daTKlZzaw-unsplash.jpg
 
 # Use pactl to adjust volume in PulseAudio.
@@ -64,6 +63,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+Return exec alacritty -e ranger
 bindsym $mod+Shift+s exec microsoft-edge-stable
+bindsym $mod+Shift+n exec obsidian
 bindsym $mod+e exec nautilus
 
 # kill focused window
@@ -126,8 +126,8 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-bindsym $mod+Tab workspace next 
-bindsym $mod+Shift+Tab workspace prev 
+bindsym $mod+Control+Right workspace next 
+bindsym $mod+Control+Left workspace prev 
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -136,13 +136,13 @@ bindsym $mod+Shift+Tab workspace prev
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Term"
 set $ws2 "2: Browser"
-set $ws3 "3: File"
+set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9: Note"
 set $ws10 "10: Music"
 
 # switch to workspace
@@ -203,7 +203,7 @@ set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock -i ~/.dotfiles/.config/i3/wallpaper/daniel-leone-v7daTKlZzaw-unsplash-2560x1440.png, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym s exec --no-startup-id i3exit logout, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
@@ -219,8 +219,14 @@ for_window [class="Nautilus"] floating enable
 for_window [class="netease-cloud-music"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="fcitx5-config-qt"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="gnome-font-viewer"] floating enable
+for_window [class="wemeetapp"] floating enable
+for_window [class="EasyConnect"] floating enable
 
 assign [class = "netease-cloud-music"] $ws10 
+assign [class = "Microsoft-edge"] $ws2 
+assign [class = "obsidian"] $ws9 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

@@ -5,70 +5,70 @@ endfunction
 
 call plug#begin()
 if !exists('g:vscode')
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'folke/todo-comments.nvim'
-	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-	Plug 'norcalli/nvim-colorizer.lua'
-	Plug 'nvim-lualine/lualine.nvim'
-	Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
-	Plug 'tpope/vim-fugitive'
-	Plug 'windwp/nvim-autopairs'
-	Plug 'lervag/vimtex'
-	Plug 'nvim-tree/nvim-tree.lua'
-	Plug 'nvim-tree/nvim-web-devicons'
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'git@github.com:nvim-lua/plenary.nvim.git'
+	Plug 'git@github.com:folke/todo-comments.nvim.git'
+	Plug 'git@github.com:nvim-telescope/telescope.nvim.git', { 'tag': '0.1.0' }
+	Plug 'git@github.com:norcalli/nvim-colorizer.lua.git'
+	Plug 'git@github.com:nvim-lualine/lualine.nvim.git'
+	Plug 'git@github.com:akinsho/toggleterm.nvim.git', {'tag' : '*'}
+	Plug 'git@github.com:tpope/vim-fugitive.git'
+	Plug 'git@github.com:windwp/nvim-autopairs.git'
+	Plug 'git@github.com:lervag/vimtex.git'
+	Plug 'git@github.com:nvim-tree/nvim-tree.lua.git'
+	Plug 'git@github.com:nvim-tree/nvim-web-devicons.git'
+	Plug 'git@github.com:nvim-treesitter/nvim-treesitter.git', {'do': ':TSUpdate'}
 	Plug 'https://github.com/szw/vim-maximizer.git'
-	Plug 'mg979/vim-visual-multi'
-	Plug 'theHamsta/nvim-dap-virtual-text'
-	Plug 'anuvyklack/pretty-fold.nvim'
-	Plug 'glepnir/dashboard-nvim'
-	Plug 'nvim-telescope/telescope-file-browser.nvim'
-	Plug 'xiyaowong/telescope-emoji.nvim'
-	Plug 'nvim-telescope/telescope-dap.nvim'
-	Plug 'benfowler/telescope-luasnip.nvim'
-	Plug 'dhruvmanila/telescope-bookmarks.nvim'
-	Plug 'rmagatti/auto-session'
-	Plug 'rmagatti/session-lens'
+	Plug 'git@github.com:mg979/vim-visual-multi.git'
+	Plug 'git@github.com:theHamsta/nvim-dap-virtual-text.git'
+	Plug 'git@github.com:anuvyklack/pretty-fold.nvim.git'
+	Plug 'git@github.com:glepnir/dashboard-nvim.git'
+	Plug 'git@github.com:nvim-telescope/telescope-file-browser.nvim.git'
+	Plug 'git@github.com:xiyaowong/telescope-emoji.nvim.git'
+	Plug 'git@github.com:nvim-telescope/telescope-dap.nvim.git'
+	Plug 'git@github.com:benfowler/telescope-luasnip.nvim.git'
+	Plug 'git@github.com:dhruvmanila/telescope-bookmarks.nvim.git'
+	Plug 'git@github.com:rmagatti/auto-session.git'
+	Plug 'git@github.com:rmagatti/session-lens.git'
 	
-	Plug 'akinsho/bufferline.nvim'
-	Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-	Plug 'moll/vim-bbye'
-	Plug 'ray-x/lsp_signature.nvim'
-	Plug 'mhartington/formatter.nvim'
+	Plug 'git@github.com:akinsho/bufferline.nvim.git'
+	Plug 'git@github.com:iamcco/markdown-preview.nvim.git', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+	Plug 'git@github.com:moll/vim-bbye.git'
+	Plug 'git@github.com:ray-x/lsp_signature.nvim.git'
+	Plug 'git@github.com:mhartington/formatter.nvim.git'
 
-	"" DAP
-	Plug 'mfussenegger/nvim-dap'
-	Plug 'rcarriga/nvim-dap-ui'
+	" DAP
+	Plug 'git@github.com:mfussenegger/nvim-dap.git'
+	Plug 'git@github.com:rcarriga/nvim-dap-ui.git'
 
-	"" completion
-	Plug 'hrsh7th/cmp-nvim-lsp'
-	Plug 'hrsh7th/cmp-buffer'
-	Plug 'hrsh7th/cmp-path'
-	Plug 'hrsh7th/cmp-cmdline'
-	Plug 'rcarriga/cmp-dap'
-	Plug 'hrsh7th/nvim-cmp'
-	Plug 'onsails/lspkind.nvim'  " vscode pictograms
-	Plug 'saadparwaiz1/cmp_luasnip'
+	" completion
+	Plug 'git@github.com:hrsh7th/cmp-nvim-lsp.git'
+	Plug 'git@github.com:hrsh7th/cmp-buffer.git'
+	Plug 'git@github.com:hrsh7th/cmp-path.git'
+	Plug 'git@github.com:hrsh7th/cmp-cmdline.git'
+	Plug 'git@github.com:rcarriga/cmp-dap.git'
+	Plug 'git@github.com:hrsh7th/nvim-cmp.git'
+	Plug 'git@github.com:onsails/lspkind.nvim.git'  " vscode pictograms
+	Plug 'git@github.com:saadparwaiz1/cmp_luasnip.git'
 
-	Plug 'rcarriga/nvim-notify'
-	Plug 'anuvyklack/pretty-fold.nvim'
+	Plug 'git@github.com:rcarriga/nvim-notify.git'
+	Plug 'git@github.com:anuvyklack/pretty-fold.nvim.git'
 
 	"" lsp
-	Plug 'williamboman/mason.nvim'
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+	Plug 'git@github.com:williamboman/mason.nvim.git'
+	Plug 'git@github.com:neovim/nvim-lspconfig.git'
+	Plug 'git@github.com:glepnir/lspsaga.nvim.git', { 'branch': 'main' }
 
-	"" colorscheme
-	"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-	"Plug 'EdenEast/nightfox.nvim'
-	"Plug 'ellisonleao/gruvbox.nvim'
-	Plug 'tanvirtin/monokai.nvim'
+	" colorscheme
+	"Plug 'git@github.com:folke/tokyonight.nvim.git', { 'branch': 'main' }
+	"Plug 'git@github.com:EdenEast/nightfox.nvim.git'
+	"Plug 'git@github.com:ellisonleao/gruvbox.nvim.git'
+	Plug 'git@github.com:tanvirtin/monokai.nvim.git'
 endif
 
-Plug 'phaazon/hop.nvim'
-Plug 'numToStr/Comment.nvim'
-Plug 'gcmt/wildfire.vim'
-Plug 'tpope/vim-surround'
-Plug 'L3MON4D3/LuaSnip', {'tag': 'v<CurrentMajor>.*'}
+Plug 'git@github.com:phaazon/hop.nvim.git'
+Plug 'git@github.com:numToStr/Comment.nvim.git'
+Plug 'git@github.com:gcmt/wildfire.vim.git'
+Plug 'git@github.com:tpope/vim-surround.git'
+Plug 'git@github.com:L3MON4D3/LuaSnip.git'
 
 call plug#end()            " required

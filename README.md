@@ -19,7 +19,7 @@ cd ~/.dotfiles && sh ./uninstall.sh
 
 ### basic
 ```bash
-yay neovim ranger i3-gaps tmux neofetch ripgrep fd fzf cmake node tree
+yay neovim ranger i3-gaps tmux neofetch ripgrep fd fzf cmake node tree xclip
 ```
 
 ### neovim 
@@ -60,7 +60,7 @@ export XMODIFIERS="@im=fcitx"
 
 Emoji
 ```
-yay -S ttf-hack-nerd noto-fonts-emoji ttf-font-awesome
+yay -S ttf-hack-nerd noto-fonts-emoji ttf-font-awesome adobe-source-sans-fonts
 ```
 
 Chinese
