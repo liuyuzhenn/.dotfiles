@@ -62,9 +62,20 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			theme = "dropdown",
-			previewer = false,
-			find_command = { "fd", "-H", "-E", ".git" },
+			-- theme = "dropdown",
+			preview = true,
+			find_command = {
+				"fd",
+				"-H",
+				"-E",
+				".git",
+				"-E",
+				"build",
+				"-E",
+				".cache",
+				"-E",
+				"__pycache__"
+			},
 			prompt_prefix = "🔍",
 		},
 	},
@@ -74,7 +85,7 @@ telescope.setup({
 			--  * 'chrome'
 			--  * 'edge'
 			--  * 'firefox'
-			selected_browser = "edge",
+			selected_browser = "chrome",
 			-- Either provide a shell command to open the URL
 			url_open_command = nil,
 
@@ -84,6 +95,7 @@ telescope.setup({
 			-- Show the full path to the bookmark instead of just the bookmark name
 			full_path = true,
 
+			chrome_profile_name = "Profile 5",
 			-- Provide a custom profile name for Firefox browser
 			firefox_profile_name = nil,
 

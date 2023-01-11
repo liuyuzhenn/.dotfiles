@@ -2,7 +2,6 @@
 
 PWD=`pwd`
 CONFIG_DIR=$PWD/.config
-FILES=
 
 for f in $(ls $CONFIG_DIR)
 do
@@ -19,7 +18,7 @@ do
 		
 	fi
 	# link
-	echo "create link $dst"
+	echo "create new link $dst"
 	ln -s $src $dst
 done
 
@@ -38,6 +37,6 @@ do
 		
 	fi
 	# link
-	echo "create link $dst"
+	echo "create new link $dst"
 	ln -s $src $dst
 done

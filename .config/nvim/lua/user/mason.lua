@@ -5,6 +5,16 @@ end
 
 mason.setup({
 	PATH = "prepend", -- "skip" seems to cause the spawning error
+	pip = {
+		-- Whether to upgrade pip to the latest version in the virtual environment before installing packages.
+		upgrade_pip = false,
+
+		-- These args will be added to `pip install` calls. Note that setting extra args might impact intended behavior
+		-- and is not recommended.
+		--
+		-- Example: { "--proxy", "https://proxyserver" }
+		install_args = { "--proxy", "127.0.0.1:7890" },
+	},
 	ui = {
 		-- Whether to automatically check for new versions when opening the :Mason window.
 		check_outdated_packages_on_open = true,
