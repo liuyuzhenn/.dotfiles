@@ -1,18 +1,13 @@
 filetype on
 filetype plugin on
 syntax on
-
+"
 let mapleader = "\<space>"
-" change default shell to pwshell
-"set shellcmdflag=-c
 set nowrap
 set nocompatible              " be iMproved, required
 set backspace=indent,eol,start
 colorscheme slate
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set showcmd
-set termguicolors
 set background=dark
 set nu
 set cursorline
@@ -72,4 +67,3 @@ map <down> :res -3<CR>
 map <left> :vertical resize -3<CR>
 map <right> :vertical resize +3<CR>
 map J <nop>
-"map <C-c> <ESC>
