@@ -2,7 +2,6 @@ function! Cond(cond, ...)
   let opts = get(a:000, 0, {})
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
-
 call plug#begin()
 if !exists('g:vscode')
 	Plug 'git@github.com:nvim-lua/plenary.nvim.git'

@@ -62,8 +62,9 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			-- theme = "dropdown",
-			preview = true,
+			theme = "dropdown",
+			previewer = false,
+			-- preview = true,
 			find_command = {
 				"fd",
 				"-H",
@@ -112,7 +113,7 @@ telescope.setup({
 			theme = "dropdown",
 			--path = "%:p:h",
 			previewer = false,
-			hidden = false,
+			hidden = true,
 			initial_mod = "insert",
 			hijach_netw = false,
 			--layerout_config = { height = 40 },
