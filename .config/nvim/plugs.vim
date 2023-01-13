@@ -6,7 +6,7 @@ endfunction
 call plug#begin()
 if !exists('g:vscode')
 	Plug 'nvim-lua/plenary.nvim'
-	Plug 'folke/todo-comments.nvim'
+	" Plug 'folke/todo-comments.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 	Plug 'norcalli/nvim-colorizer.lua'
 	Plug 'nvim-lualine/lualine.nvim'

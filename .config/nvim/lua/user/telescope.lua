@@ -32,7 +32,7 @@ telescope.setup({
 			vertical = { mirror = false },
 		},
 		vimgrep_arguments = {
-			"/usr/bin/rg",
+			os.getenv('HOME') .. "/software/ripgrep/rg",
 			"--color=never",
 			"--no-heading",
 			"--with-filename",
@@ -64,7 +64,7 @@ telescope.setup({
 		find_files = {
 			theme = "dropdown",
 			previewer = false,
-			find_command = { "fd" },
+			find_command = { "find" },
 			prompt_prefix = "🔍",
 		},
 	},
