@@ -1,54 +1,54 @@
 local status_ok, db = pcall(require, "dashboard")
 if not status_ok then
-  return
+	return
 end
 
 local home = os.getenv('HOME')
-local empty=[[]]
+local empty = [[]]
 db.session_directory = home .. '/.cache/nvim/DSSession'
 db.custom_header = {
-  empty,
-  empty,
-  [[        ▄▄▄▄▄███████████████████▄▄▄▄▄     ]],
-  [[      ▄██████████▀▀▀▀▀▀▀▀▀▀██████▀████▄   ]],
-  [[     █▀████████▄             ▀▀████ ▀██▄  ]],
-  [[    █▄▄██████████████████▄▄▄         ▄██▀ ]],
-  [[     ▀█████████████████████████▄    ▄██▀  ]],
-  [[       ▀████▀▀▀▀▀▀▀▀▀▀▀▀█████████▄▄██▀    ]],
-  [[         ▀███▄              ▀██████▀      ]],
-  [[           ▀██████▄        ▄████▀         ]],
-  [[              ▀█████▄▄▄▄▄▄▄███▀           ]],
-  [[                ▀████▀▀▀████▀             ]],
-  [[                  ▀███▄███▀               ]],
-  [[                     ▀█▀                  ]],
-  empty
-  }
+	empty,
+	empty,
+	[[        ▄▄▄▄▄███████████████████▄▄▄▄▄     ]],
+	[[      ▄██████████▀▀▀▀▀▀▀▀▀▀██████▀████▄   ]],
+	[[     █▀████████▄             ▀▀████ ▀██▄  ]],
+	[[    █▄▄██████████████████▄▄▄         ▄██▀ ]],
+	[[     ▀█████████████████████████▄    ▄██▀  ]],
+	[[       ▀████▀▀▀▀▀▀▀▀▀▀▀▀█████████▄▄██▀    ]],
+	[[         ▀███▄              ▀██████▀      ]],
+	[[           ▀██████▄        ▄████▀         ]],
+	[[              ▀█████▄▄▄▄▄▄▄███▀           ]],
+	[[                ▀████▀▀▀████▀             ]],
+	[[                  ▀███▄███▀               ]],
+	[[                     ▀█▀                  ]],
+	empty
+}
 db.custom_center = {
-	      {icon = '  ',
-      desc = 'Recently latest session                 ',
-      shortcut = 'SPC g l',
-      action ='SessionLoad'},
-      {icon = '  ',
-      desc = 'Find  File                              ',
-      action = 'Telescope find_files find_command=find',
-      shortcut = 'SPC f f'},
-      {icon = '  ',
-      desc ='File Browser                            ',
-      action =  'Telescope file_browser',
-      shortcut = 'SPC f b'},
-      {icon = '  ',
-      desc = 'Find  word                              ',
-      action = 'Telescope live_grep',
-      shortcut = 'SPC f g'},
-    }
+	{ icon = '  ',
+		desc = 'Recently latest session                 ',
+		shortcut = 'SPC g l',
+		action = 'SessionLoad' },
+	{ icon = '  ',
+		desc = 'Find  File                              ',
+		action = 'Telescope find_files find_command=find',
+		shortcut = 'SPC f f' },
+	{ icon = '  ',
+		desc = 'File Browser                            ',
+		action = 'Telescope file_browser',
+		shortcut = 'SPC f b' },
+	{ icon = '  ',
+		desc = 'Find  word                              ',
+		action = 'Telescope live_grep',
+		shortcut = 'SPC f g' },
+}
 
-vim.api.nvim_set_keymap('n', '<leader>gl', ':SessionLoad<CR>', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<leader>gs', ':SessionSave<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>gl', '<Cmd>SessionLoad<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>gs', '<Cmd>SessionSave<CR>', { noremap = true, silent = false })
 vim.api.nvim_create_autocmd('User', {
-pattern = 'DBSessionSavePre',
-callback = function()
-pcall(vim.cmd, 'NvimTreeClose')
-end,
+	pattern = 'DBSessionSavePre',
+	callback = function()
+		pcall(vim.cmd, 'NvimTreeClose')
+	end,
 })
 
 vim.cmd([[

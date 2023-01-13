@@ -74,7 +74,7 @@ telescope.setup({
 			--  * 'chrome'
 			--  * 'edge'
 			--  * 'firefox'
-			selected_browser = "edge",
+			selected_browser = "chrome",
 			-- Either provide a shell command to open the URL
 			url_open_command = nil,
 
@@ -84,6 +84,7 @@ telescope.setup({
 			-- Show the full path to the bookmark instead of just the bookmark name
 			full_path = true,
 
+			chrome_profile_name = "Profile 5",
 			-- Provide a custom profile name for Firefox browser
 			firefox_profile_name = nil,
 
@@ -100,7 +101,7 @@ telescope.setup({
 			theme = "dropdown",
 			--path = "%:p:h",
 			previewer = false,
-			hidden = false,
+			hidden = true,
 			initial_mod = "insert",
 			hijach_netw = false,
 			--layerout_config = { height = 40 },

@@ -6,8 +6,8 @@ shell:
 
 window:
   dimensions:
-    columns: 120
-    lines: 50
+    columns: 100
+    lines: 30
 
   padding:
     x: 10
@@ -46,18 +46,19 @@ font:
     style: Bold Italic
 
 
-# Colors (Nord)
+# Colors (Nord modified)
 colors:
   # Default colors
   primary:
-    background: '#2E3440'
+    # background: '#2E3440'
+    background: '#242424'
     foreground: '#D8DEE9'
 
   # Normal colors
   normal:
     black:   '#3B4252'
     red:     '#BF616A'
-    green:   '#A3BE8C'
+    green:   '#73BE6C'
     yellow:  '#EBCB8B'
     blue:    '#81A1C1'
     magenta: '#B48EAD'
@@ -68,7 +69,7 @@ colors:
   bright:
     black:   '#4C566A'
     red:     '#BF616A'
-    green:   '#A3BE8C'
+    green:   '#73BE6C'
     yellow:  '#EBCB8B'
     blue:    '#81A1C1'
     magenta: '#B48EAD'

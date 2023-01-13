@@ -60,7 +60,13 @@ nmap yh y^
 nmap dl d$
 nnoremap ZZ :wa<CR>:qa<CR>
 
-nmap <silent><leader>n <Cmd>noh<CR>
+nnoremap <silent><leader>n :noh<CR>
+nmap dii di'
+nmap diI di"
+nmap cii ci'
+nmap ciI ci"
+nmap yii yi'
+nmap yiI yi"
 
 " INSERT MODE
 inoremap <C-h> <Left>

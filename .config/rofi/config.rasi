@@ -1,6 +1,8 @@
 configuration {
-    font: "monospace 14";
+    font: "Hack Nerd Font 14";
     line-margin: 10;
+    kb-accept-entry: "Return";
+    kb-cancel: "Escape,Control+c";
 
     display-ssh:    "";
     display-run:    "";

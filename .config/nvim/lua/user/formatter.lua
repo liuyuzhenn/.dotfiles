@@ -22,6 +22,19 @@ formatter.setup({
 		-- and will be executed in order
 		lua = { require("formatter.filetypes.lua").stylua },
 		python = { require("formatter.filetypes.python").autopep8 },
+		yaml = { require("formatter.filetypes.yaml").yamlfmt },
+		xml = {
+			{
+				exe = "xmlformat",
+				args = {
+					"--indent",
+					2,
+					"--infile",
+					util.escape_path(util.get_current_buffer_file_name()),
+				},
+				stdin = true,
+			},
+		},
 		cpp = {
 			{
 				exe = "clang-format",

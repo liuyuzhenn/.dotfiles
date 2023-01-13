@@ -29,3 +29,5 @@ imap <silent><expr> <C-w> luasnip#expandable() ? '<Plug>luasnip-expand-snippet' 
 ]]
 
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+
+ls.filetype_extend("zsh", { "sh", "zsh" })
