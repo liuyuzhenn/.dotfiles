@@ -96,12 +96,7 @@ telescope.setup({
 			-- Show the full path to the bookmark instead of just the bookmark name
 			full_path = true,
 
-			chrome_profile_name = "Profile 5",
-			-- Provide a custom profile name for Firefox browser
-			firefox_profile_name = nil,
-
-			-- Provide a custom profile name for Waterfox browser
-			waterfox_profile_name = nil,
+			profile_name = "Person 1",
 
 			-- Add a column which contains the tags for each bookmark for buku
 			buku_include_tags = false,

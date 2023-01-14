@@ -3,7 +3,6 @@ if not status then
 	return
 end
 
-vim.notify = notify
 notify.setup({
 	background_colour = "Normal",
 	fps = 30,
@@ -18,6 +17,19 @@ notify.setup({
 	minimum_width = 50,
 	render = "default",
 	stages = "fade_in_slide_out",
-	timeout = 3000,
+	timeout = 1500,
 	top_down = true,
 })
+
+local banned_messages = {
+	"[LSP] Format request failed, no matching language servers.",
+}
+
+vim.notify = function(msg, ...)
+	for _, banned in ipairs(banned_messages) do
+		if msg == banned then
+			return
+		end
+	end
+	notify(msg, ...)
+end

@@ -24,13 +24,19 @@ local snippets = {
 		{ trig = "for" },
 		fmta(
 			[[
-		for <> in <>
-		do
+		for <> in <>; do
 			<>
 		done
 		]],
 			{ i(1, "a"), i(2), i(3) }
 		)
 	),
+	s({ trig = "if" }, {
+		t("if [[ "),
+		i(1),
+		t({ " ]]; then", "\t" }),
+		i(2),
+		t({ "", "fi" }),
+	}),
 }
 return snippets
