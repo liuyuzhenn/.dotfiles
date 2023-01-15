@@ -1,5 +1,7 @@
 set $mod Mod4
 
+set $gaps_default 15
+
 set $size1 640 px 360 px
 set $size2 960px 640px
 set $size3 1280px 720px
@@ -22,7 +24,7 @@ hide_edge_borders both
 default_border pixel 2
 default_floating_border pixel 2
 
-gaps inner 15
+gaps inner $gaps_default
 # gaps outer 15 
 
 floating_modifier $mod
