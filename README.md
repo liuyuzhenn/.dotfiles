@@ -22,6 +22,13 @@ cd ~/.dotfiles && sh ./uninstall.sh
 yay neovim ranger i3-gaps tmux neofetch ripgrep fd fzf cmake node tree xclip
 ```
 
+### zsh
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
 ### neovim 
 
 vim-plug
@@ -40,6 +47,7 @@ cd ~/.local/share/nvim/plugged/markdown-preview.nvim/ && npm install
 
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 ```
 
 ### fcitx5

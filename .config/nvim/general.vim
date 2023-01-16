@@ -2,6 +2,7 @@ filetype on
 filetype plugin on
 syntax on
 
+colorscheme monokai_soda
 let mapleader = "\<space>"
 " change default shell to pwshell
 "set shell=pwsh.exe
@@ -9,7 +10,6 @@ let mapleader = "\<space>"
 set nowrap
 set nocompatible              " be iMproved, required
 set backspace=indent,eol,start
-colorscheme monokai_pro
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set showcmd
