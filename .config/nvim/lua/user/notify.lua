@@ -3,7 +3,6 @@ if not status then
 	return
 end
 
-vim.notify = notify
 notify.setup({
 	background_colour = "Normal",
 	fps = 30,
@@ -21,3 +20,15 @@ notify.setup({
 	timeout = 3000,
 	top_down = true,
 })
+
+local band_messages = {
+	"[LSP] Format request failed, no matching language servers.",
+}
+vim.notify = function(message, ...)
+	for _, banded in pairs(band_messages) do
+		if message == banded then
+			return
+		end
+	end
+	notify(message, ...)
+end
