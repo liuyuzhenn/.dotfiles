@@ -3,7 +3,6 @@ if not status_ok then
 	return
 end
 
---require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 -- local conda_path = "/home/liuyuzhen/anaconda3"
 dap.adapters.python = {
 	type = "executable",

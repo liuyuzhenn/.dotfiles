@@ -47,6 +47,7 @@ local lsp_flags = {
 }
 
 lspconfig.pyright.setup({
+	root_dir = util.find_git_ancestor,
 	on_attach = on_attach,
 	flags = lsp_flags,
 	settings = {
@@ -85,7 +86,7 @@ lspconfig.texlab.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	root_dir = util.root_pattern("*.tex"),
-	cmd = { "texlab" }
+	cmd = { "texlab" },
 })
 
 lspconfig.vimls.setup({
