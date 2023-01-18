@@ -1,9 +1,9 @@
 #!/bin/bash
 folder=~/Documents/quicknotes
+[[ ! -d $folder ]] && (notify-send "Folder $folder not exists! Please create it manually."; exit 1)
 file=$(date +"%Y-%m-%d").md
 template=${folder}/template.md
 dst=${folder}/${file}
-
 [[ -f $template ]] && ([[ -f $dst ]] || cp $template $dst)
 exec alacritty $@  -e ${EDITOR:-"/usr/bin/nvim"} $dst
 

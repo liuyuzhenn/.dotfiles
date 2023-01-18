@@ -28,7 +28,7 @@ scrolling:
   auto_scroll: true
 
 font:
-  size: 10
+  size: 11
   # 字体
   normal:
     family: hack

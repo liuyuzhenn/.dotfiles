@@ -6,20 +6,20 @@
 
 ```bash
 git clone git@github.com:liuyuzhenn/.dotfiles.git ~/.dotfiles
-cd ~/.dotfiles && sh ./install.sh
+cd ~/.dotfiles && sudo sh ./install.sh
 ```
 
 ### Uninstall
 
 ```bash
-cd ~/.dotfiles && sh ./uninstall.sh
+cd ~/.dotfiles && sudo sh ./uninstall.sh
 ```
 
 ## Dependencies
 
 ### basic
 ```bash
-yay neovim ranger i3-gaps tmux neofetch ripgrep fd fzf cmake node tree xclip
+yay neovim ranger i3-gaps i3lock-fancy tmux neofetch ripgrep fd fzf cmake node tree xclip dunst
 ```
 
 ### zsh
