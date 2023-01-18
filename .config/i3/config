@@ -1,6 +1,6 @@
 set $mod Mod4
 
-set $gaps_default 15
+set $gaps_default 25
 
 set $size1 640 px 360 px
 set $size2 960px 640px
@@ -9,8 +9,8 @@ set $size4 1600px 900px
 
 set $ws1 "1: Term"
 set $ws2 "2: Browser"
-set $ws3 "3: Code"
-set $ws4 "4: Writing"
+set $ws3 "3: Study"
+set $ws4 "4: Code"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -35,8 +35,11 @@ font pango:Hack Nerd Font 12
 # font pango:Terminus 12px
 
 exec --no-startup-id nm-applet
-exec --no-startup-id xrandr --output Virtual-1 --mode 2560x1440
+exec --no-startup-id blueman-applet
+exec --no-startup-id togmon 
+# exec --no-startup-id xrandr --output eDP1 --mode 1920x1200 --output DP1 --mode 2560x1440
 exec --no-startup-id fcitx5 &
+exec --no-startup-id dunst &
 exec --no-startup-id picom -b --config ~/.config/picom.conf
 exec_always --no-startup-id . ~/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper/143588-shan_mai-da_wu_shan-qi_fen-tian_kong-jian_yue-3840x2160.jpg
@@ -46,7 +49,7 @@ include ~/.config/i3/keybinding.conf
 include ~/.config/i3/layout.conf
 # class                 border  backgr. text    indicator child_border
 # client.focused          #aaaaaa #404040 #ffffff #aaaaaa   #aaaaaa
-client.focused          #8ABEE7 #404040 #ffffff ##8ABEE7  #8ABEE7 
+client.focused          #77aaff #404040 #ffffff #77aaff   #77aaff 
 client.focused_inactive #656565 #555555 #ffffff #484e50   #666666
 client.unfocused        #333333 #222222 #888888 #292d2e   #606060
 client.urgent           #2f343a #900000 #ffffff #900000   #900000

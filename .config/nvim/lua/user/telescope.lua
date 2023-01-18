@@ -84,7 +84,7 @@ telescope.setup({
 			-- Show the full path to the bookmark instead of just the bookmark name
 			full_path = true,
 
-			profile_name = "Person 1",
+			profile_name = "Yuzhen",
 
 			-- Add a column which contains the tags for each bookmark for buku
 			buku_include_tags = false,

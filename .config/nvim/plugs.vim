@@ -28,7 +28,7 @@ if !exists('g:vscode')
 	Plug 'git@github.com:dhruvmanila/telescope-bookmarks.nvim.git'
 	Plug 'git@github.com:rmagatti/auto-session.git'
 	Plug 'git@github.com:rmagatti/session-lens.git'
-	
+
 	Plug 'git@github.com:akinsho/bufferline.nvim.git'
 	Plug 'git@github.com:iamcco/markdown-preview.nvim.git', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 	Plug 'git@github.com:moll/vim-bbye.git'

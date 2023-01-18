@@ -1,10 +1,9 @@
 filetype on
 filetype plugin on
 syntax on
-"
 let mapleader = "\<space>"
 set nowrap
-set nocompatible              " be iMproved, required
+set nocompatible
 set backspace=indent,eol,start
 colorscheme slate
 set showcmd
@@ -19,10 +18,11 @@ set foldlevel=9999
 set foldminlines=5
 set nobackup
 set signcolumn=yes
+set tabstop=4
 set clipboard+=unnamedplus
 nmap <A-d> <Cmd>Bdelete<CR>
-
-" NORMAL MODE
+"
+"" NORMAL MODE
 nmap <c-s> xi
 nmap S :w<CR>
 nmap Q :q<CR>
@@ -34,7 +34,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <silent><C-n> :noh<CR>
 nnoremap R <Cmd>source $MYVIMRC<CR>
-
 " split
 nmap sl :set splitright<CR>:vsplit<CR>
 nmap sh :set nosplitright<CR>:vsplit<CR>
