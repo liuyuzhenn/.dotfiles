@@ -17,18 +17,19 @@ notify.setup({
 	minimum_width = 50,
 	render = "default",
 	stages = "fade_in_slide_out",
-	timeout = 3000,
+	timeout = 1500,
 	top_down = true,
 })
 
-local band_messages = {
+local banned_messages = {
 	"[LSP] Format request failed, no matching language servers.",
 }
-vim.notify = function(message, ...)
-	for _, banded in pairs(band_messages) do
-		if message == banded then
+
+vim.notify = function(msg, ...)
+	for _, banned in ipairs(banned_messages) do
+		if msg == banned then
 			return
 		end
 	end
-	notify(message, ...)
+	notify(msg, ...)
 end

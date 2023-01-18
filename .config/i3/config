@@ -1,13 +1,16 @@
 set $mod Mod4
 
-set $size_video_small 640 px 360 px
-set $size_middle 960px 640px
-set $size_large 960px 640px
+set $gaps_default 25
+
+set $size1 640 px 360 px
+set $size2 960px 640px
+set $size3 1280px 720px
+set $size4 1600px 900px
 
 set $ws1 "1: Term"
 set $ws2 "2: Browser"
-set $ws3 "3: Code"
-set $ws4 "4: Writing"
+set $ws3 "3: Study"
+set $ws4 "4: Code"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -16,32 +19,37 @@ set $ws9 "9: Note"
 set $ws10 "10: Music"
 
 # border pixel 2
+smart_borders on
 hide_edge_borders both
 default_border pixel 2
 default_floating_border pixel 2
 
-gaps inner 5 
-gaps outer 2
+gaps inner $gaps_default
+# gaps outer 15 
 
 floating_modifier $mod
-focus_follows_mouse no
+focus_follows_mouse yes
 
 font pango:Hack Nerd Font 12
 # font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 12
 # font pango:Terminus 12px
 
 exec --no-startup-id nm-applet
-exec --no-startup-id xrandr --output Virtual-1 --mode 2560x1440
+exec --no-startup-id blueman-applet
+exec --no-startup-id togmon 
+# exec --no-startup-id xrandr --output eDP1 --mode 1920x1200 --output DP1 --mode 2560x1440
 exec --no-startup-id fcitx5 &
+exec --no-startup-id dunst &
 exec --no-startup-id picom -b --config ~/.config/picom.conf
 exec_always --no-startup-id . ~/.config/polybar/launch.sh
-exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper/daniel-leone-v7daTKlZzaw-unsplash.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper/143588-shan_mai-da_wu_shan-qi_fen-tian_kong-jian_yue-3840x2160.jpg
 
 include ~/.config/i3/keybinding.conf
 
 include ~/.config/i3/layout.conf
 # class                 border  backgr. text    indicator child_border
-client.focused          #aaaaaa #404040 #ffffff #aaaaaa   #aaaaaa
+# client.focused          #aaaaaa #404040 #ffffff #aaaaaa   #aaaaaa
+client.focused          #77aaff #404040 #ffffff #77aaff   #77aaff 
 client.focused_inactive #656565 #555555 #ffffff #484e50   #666666
 client.unfocused        #333333 #222222 #888888 #292d2e   #606060
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
