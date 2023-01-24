@@ -15,14 +15,15 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9: Note"
+set $ws9 "9: Download"
 set $ws10 "10: Music"
 
 # border pixel 2
-smart_borders on
+# smart_borders on
 hide_edge_borders both
 default_border pixel 2
 default_floating_border pixel 2
+new_window pixel 2
 
 gaps inner $gaps_default
 # gaps outer 15 
@@ -37,10 +38,13 @@ font pango:Hack Nerd Font 12
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id togmon 
+exec --no-startup-id fusuma
+exec --no-startup-id udiskie -n & 
 # exec --no-startup-id xrandr --output eDP1 --mode 1920x1200 --output DP1 --mode 2560x1440
 exec --no-startup-id fcitx5 &
 exec --no-startup-id dunst &
 exec --no-startup-id picom -b --config ~/.config/picom.conf
+exec --no-startup-id alacritty -e tmux
 exec_always --no-startup-id . ~/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper/143588-shan_mai-da_wu_shan-qi_fen-tian_kong-jian_yue-3840x2160.jpg
 
