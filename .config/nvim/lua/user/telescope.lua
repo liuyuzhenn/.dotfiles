@@ -65,6 +65,21 @@ telescope.setup({
 			theme = "dropdown",
 			previewer = false,
 			find_command = { "find" },
+			-- preview = true,
+			-- find_command = {
+			-- 	"fd",
+			-- 	"-t",
+			-- 	"f",
+			-- 	"-H",
+			-- 	"-E",
+			-- 	".git",
+			-- 	"-E",
+			-- 	"build",
+			-- 	"-E",
+			-- 	".cache",
+			-- 	"-E",
+			-- 	"__pycache__"
+
 			prompt_prefix = "🔍",
 		},
 	},
@@ -130,7 +145,7 @@ vim.keymap.set("n", "<leader>fh", builtin.commands, {})
 vim.keymap.set("n", "<leader>ft", builtin.treesitter, {})
 vim.keymap.set("n", "<leader>fc", builtin.grep_string, {})
 vim.keymap.set("n", "<leader>fb", extensions.file_browser.file_browser, {})
-vim.keymap.set("n", "<leader>em", extensions.emoji.emoji, {})
+vim.keymap.set("n", "<leader>ji", extensions.emoji.emoji, {})
 vim.keymap.set("n", "<leader>fm", extensions.bookmarks.bookmarks, {})
 vim.keymap.set("n", "<leader>fs", "<Cmd>SearchSession<CR>", {})
 

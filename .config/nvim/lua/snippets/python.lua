@@ -71,6 +71,9 @@ local snippets = {
 	s({ trig = "osj" }, {
 		t("os.path.join("), i(1), t(")")
 	}),
+	s({ trig = "osp" }, {
+		t("os.path.", i(1))
+	}),
 	s({ trig = "parsadd" }, {
 		c(1, {
 			fmt("parser.add_argument('{node1}', type={node2}, default={node3}, help='{node4}')", {

@@ -63,8 +63,8 @@ bf.setup({
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		-- can also be a table containing 2 custom separators
 		-- [focused and unfocused]. eg: { '|', '|' }
-		separator_style = "slant", --| "slant" | "thick" | "thin" | { 'any', 'any' },
-		--separator_style = { '', '' },
+		separator_style = "thin", --| "slant" | "thick" | "thin" | { 'any', 'any' },
+		-- separator_style = { '', '' },
 		enforce_regular_tabs = false, --| true,
 		always_show_bufferline = true, -- | false,
 		sort_by = 'id', -- ,'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
@@ -79,11 +79,12 @@ bf.setup({
 		tab_selected = {},
 		buffer_selected = {
 			underline = false,
-			fg = "#fd971f",
+			fg = "#8ABEE7",
 			bold = true,
 			italic = false,
 		},
 		indicator_selected = {
+			fg = "#8ABEE7",
 			bold = true,
 			underdouble = true
 		},
