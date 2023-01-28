@@ -1,0 +1,8 @@
+#!/bin/bash
+
+dir=~/Pictures/screenshot
+file=$(date +"%Y%b%d::%H%M%S.png")
+img=$dir/$file
+scrot $img -s -e 'xclip -selection clipboard -target image/png -i $f'
+ret=$?
+[[ $ret -eq 0 ]] && notify-send "Screenshot is saved as: $img" -i $img

@@ -3,7 +3,9 @@ intern=eDP1
 extern=DP1
 
 if xrandr | grep "$extern disconnected"; then
-    xrandr --output $extern --off --output "$intern" --auto
+    xrandr --output $intern --mode 1920x1200 --output $extern --off
 else
-    xrandr --output $intern --off --output "$extern" --auto
+    xrandr --output $intern --off --output $extern --mode 2560x1440
 fi
+
+feh --bg-fill ~/Pictures/wallpaper/143588-shan_mai-da_wu_shan-qi_fen-tian_kong-jian_yue-3840x2160.jpg

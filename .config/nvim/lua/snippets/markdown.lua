@@ -38,9 +38,9 @@ local markdown = {
 			i(1),
 		})
 	),
-	s({ trig = "bf" }, { t("*"), i(1), t("*"), i(0) }),
-	s({ trig = "ie" }, { t("**i.e.**"), i(0) }),
-	s({ trig = "eg" }, { t("**e.g.**"), i(0) }),
+	s({ trig = "bf" }, { t("**"), i(1), t("**"), i(0) }),
+	s({ trig = "ie" }, { t("*i.e.*"), i(0) }),
+	s({ trig = "eg" }, { t("*e.g.*"), i(0) }),
 	s({ trig = "img", dscr = "insert image" }, {
 		t('<img src="'),
 		i(1),
@@ -99,6 +99,8 @@ local markdown = {
 			return snip
 		end, {}, "   "),
 	}),
+	s({ trig = "-o", snippetType = "snippet" }, { t("- [ ] ") }),
+	s({ trig = "-x", snippetType = "snippet" }, { t("- [x] ") }),
 }
 
 return markdown
