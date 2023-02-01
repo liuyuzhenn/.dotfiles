@@ -6,16 +6,16 @@ call plug#begin()
 if !exists('g:vscode')
 	Plug 'git@github.com:nvim-lua/plenary.nvim.git'
 	Plug 'git@github.com:folke/todo-comments.nvim.git'
-	Plug 'git@github.com:nvim-telescope/telescope.nvim.git', { 'tag': '0.1.0' }
+	Plug 'git@github.com:nvim-telescope/telescope.nvim.git', { 'tag': '0.1.1' }
 	Plug 'git@github.com:norcalli/nvim-colorizer.lua.git'
 	Plug 'git@github.com:nvim-lualine/lualine.nvim.git'
-	Plug 'git@github.com:akinsho/toggleterm.nvim.git', {'tag' : '*'}
+	Plug 'git@github.com:akinsho/toggleterm.nvim.git', { 'tag': '*' }
 	Plug 'git@github.com:tpope/vim-fugitive.git'
 	Plug 'git@github.com:windwp/nvim-autopairs.git'
 	Plug 'git@github.com:lervag/vimtex.git'
 	Plug 'git@github.com:nvim-tree/nvim-tree.lua.git'
 	Plug 'git@github.com:nvim-tree/nvim-web-devicons.git'
-	Plug 'git@github.com:nvim-treesitter/nvim-treesitter.git', {'do': ':TSUpdate'}
+	Plug 'git@github.com:nvim-treesitter/nvim-treesitter.git', { 'do': ':TSUpdate' }
 	Plug 'https://github.com/szw/vim-maximizer.git'
 	Plug 'git@github.com:mg979/vim-visual-multi.git'
 	Plug 'git@github.com:theHamsta/nvim-dap-virtual-text.git'
@@ -58,9 +58,6 @@ if !exists('g:vscode')
 	Plug 'git@github.com:glepnir/lspsaga.nvim.git', { 'branch': 'main' }
 
 	" colorscheme
-	"Plug 'git@github.com:folke/tokyonight.nvim.git', { 'branch': 'main' }
-	"Plug 'git@github.com:EdenEast/nightfox.nvim.git'
-	"Plug 'git@github.com:ellisonleao/gruvbox.nvim.git'
 	Plug 'git@github.com:tanvirtin/monokai.nvim.git'
 endif
 

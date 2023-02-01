@@ -58,6 +58,9 @@ map L $
 nmap yl y$
 nmap yh y^
 nmap dl d$
+nmap dh d^
+nmap cl c$
+nmap ch c^
 nnoremap ZZ :wa<CR>:qa<CR>
 
 nnoremap <silent><leader>n :noh<CR>
@@ -74,10 +77,10 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
-map <up> :res +3<CR>
-map <down> :res -3<CR>
-map <left> :vertical resize -3<CR>
-map <right> :vertical resize +3<CR>
-map J <nop>
+nmap <up> :res +3<CR>
+nmap <down> :res -3<CR>
+nmap <left> :vertical resize -3<CR>
+nmap <right> :vertical resize +3<CR>
+nmap J <nop>
 "map <C-c> <ESC>
 

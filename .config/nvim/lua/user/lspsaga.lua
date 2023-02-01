@@ -21,7 +21,7 @@ saga.setup({
 		outgoing = ' ',
 		colors = {
 			--float window normal background color
-			normal_bg = '#103047',
+			normal_bg = '#5070a7',
 			--title background color
 			title_bg = '#afd700',
 			red = '#e95678',
