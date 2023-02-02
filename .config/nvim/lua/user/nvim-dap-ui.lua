@@ -55,7 +55,7 @@ dapui.setup({
 				{ id = "console", size = 0.4 },
 			},
 			size = 0.22, -- 25% of total lines
-			position = "right",
+			position = "bottom",
 		},
 	},
 	floating = {

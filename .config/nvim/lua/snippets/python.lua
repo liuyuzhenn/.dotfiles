@@ -27,7 +27,7 @@ local numpy_style_doc = function(args)
 	local params = args[1][1]:gsub("%s", "")
 	local arg_inputs = utils.split(params, ",")
 	for index, arg in ipairs(arg_inputs) do
-		nodes[#nodes + 1] = t({ "", "\t" .. arg .. " : ", })
+		nodes[#nodes + 1] = t({ "", "\t" .. arg .. " : " })
 		nodes[#nodes + 1] = i(2 * index - 1, "type")
 		nodes[#nodes + 1] = t({ "", "\t\t" })
 		nodes[#nodes + 1] = i(2 * index, "description")
@@ -46,6 +46,15 @@ local google_style_doc = function(args)
 		nodes[#nodes + 1] = i(index, "description")
 	end
 	nodes = sn(nil, nodes)
+	return nodes
+end
+
+local comment_block = function(args)
+	print(vim.inspect(args))
+	local num = args[1][1]:len()
+	local text = string.rep("#", num + 4)
+	local nodes = sn(nil, { t(text) })
+	print(text)
 	return nodes
 end
 
@@ -69,12 +78,14 @@ local snippets = {
 		i(0),
 	}),
 	s({ trig = "osj" }, {
-		t("os.path.join("), i(1), t(")")
+		t("os.path.join("),
+		i(1),
+		t(")"),
 	}),
 	s({ trig = "osp" }, {
-		t("os.path.", i(1))
+		t("os.path.", i(1)),
 	}),
-	s({ trig = "parsadd" }, {
+	s({ trig = "pa" }, {
 		c(1, {
 			fmt("parser.add_argument('{node1}', type={node2}, default={node3}, help='{node4}')", {
 				node1 = i(1),
@@ -109,35 +120,60 @@ local snippets = {
 		t({ "):", "		" }),
 		i(0),
 	}),
-	s({ trig = "d" }, c(1,
-		{
+	s({ trig = "cb" }, {
+		d(2, comment_block, { 1 }, {}),
+		t({ "", "# " }),
+		i(1, "comments"),
+		t({ " #", "" }),
+		d(3, comment_block, { 1 }, {}),
+	}),
+	s(
+		{ trig = "d" },
+		c(1, {
 			sn(nil, {
-				t("def "), i(1, 'function'), t("("),
-				i(2, "param1"), t({ "):", '\t"""', "\t" }), i(3, "A docstring"),
+				t("def "),
+				i(1, "function"),
+				t("("),
+				i(2, "param1"),
+				t({ "):", '\t"""', "\t" }),
+				i(3, "A docstring"),
 				t({ "", "", "\tArgs:" }),
 				d(4, google_style_doc, { 2 }, {}),
-				t({ "", "", "\tReturns:", "\t\t" }), i(5, "description"),
-				t({ "", '\t"""', "\t" }), i(6)
+				t({ "", "", "\tReturns:", "\t\t" }),
+				i(5, "description"),
+				t({ "", '\t"""', "\t" }),
+				i(6),
 			}),
 			sn(nil, {
-				t("def "), i(1, 'function'), t("("),
-				i(2, "param1"), t({ "):", '\t"""', "\t" }), i(3, "A docstring"),
+				t("def "),
+				i(1, "function"),
+				t("("),
+				i(2, "param1"),
+				t({ "):", '\t"""', "\t" }),
+				i(3, "A docstring"),
 				t({ "", "", "\tParameters", "\t----------" }),
 				d(4, numpy_style_doc, { 2 }, {}),
-				t({ "", "", "\tReturns", "\t-------", "\t" }), i(5, "type"),
-				t({ "", '\t"""', "\t" }), i(6)
+				t({ "", "", "\tReturns", "\t-------", "\t" }),
+				i(5, "type"),
+				t({ "", '\t"""', "\t" }),
+				i(6),
 			}),
-			fmt([[
+			fmt(
+				[[
 def {}({}):
 	"""{}"""
 	{}
-			]], { i(1, "function"), i(2, "param1"), i(3, 'This is a docstring'), i(4) }),
-			fmt([[
+			]],
+				{ i(1, "function"), i(2, "param1"), i(3, "This is a docstring"), i(4) }
+			),
+			fmt(
+				[[
 def {}({}):
 	{}
-			]], { i(1, "function"), i(2, "param1"), i(0) })
-		}
-	)
+			]],
+				{ i(1, "function"), i(2, "param1"), i(0) }
+			),
+		})
 	),
 }
 
