@@ -64,7 +64,17 @@ telescope.setup({
 		find_files = {
 			theme = "dropdown",
 			previewer = false,
-			find_command = { "find" },
+			find_command = {
+				"find",
+				"-type",
+				"f",
+				"!",
+				"-name",
+				"*.pt",
+				"!",
+				"-name",
+				"*.pth",
+			},
 			-- preview = true,
 			-- find_command = {
 			-- 	"fd",
