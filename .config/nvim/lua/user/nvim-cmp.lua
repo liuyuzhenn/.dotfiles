@@ -43,7 +43,14 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
 	}),
 	sources = cmp.config.sources({
-		{ name = "path" },
+		{
+			name = "path",
+			option = {
+				get_cwd = function()
+					return vim.fn['getcwd']()
+				end
+			}
+		},
 		{ name = "omni" },
 		{ name = "nvim_lsp", keyword_length = 2 },
 		{ name = "luasnip" },

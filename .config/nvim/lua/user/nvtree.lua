@@ -65,11 +65,11 @@ vim.opt.termguicolors = true
 nvim_tree.setup({
 	auto_reload_on_write = false,
 	update_cwd = true,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-	},
+	-- ignore_ft_on_setup = {
+	-- 	"startify",
+	-- 	"dashboard",
+	-- 	"alpha",
+	-- },
 	diagnostics = {
 		enable = false,
 		icons = {
@@ -80,7 +80,7 @@ nvim_tree.setup({
 		},
 	},
 	update_focused_file = {
-		enable = true,
+		enable = false,
 		update_cwd = false,
 		ignore_list = {},
 	},
@@ -111,7 +111,7 @@ nvim_tree.setup({
 		},
 	},
 	git = {
-		enable = true,
+		enable = false,
 		ignore = false,
 		timeout = 400,
 	},
