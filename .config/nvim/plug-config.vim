@@ -6,7 +6,7 @@ endif
 lua require('user.mason')
 lua require('user.telescope')
 lua require('user.colorizer')
-lua require('user.nvtree')
+lua require('user.nvim-tree')
 lua require('user.toggleterm')
 lua require('user.lualine')
 lua require('user.treesitter')

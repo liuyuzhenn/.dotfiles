@@ -5,7 +5,7 @@ endfunction
 call plug#begin()
 if !exists('g:vscode')
 	Plug 'git@github.com:nvim-lua/plenary.nvim.git'
-	" Plug 'git@github.com:folke/todo-comments.nvim.git'
+	Plug 'git@github.com:folke/todo-comments.nvim.git'
 	Plug 'git@github.com:nvim-telescope/telescope.nvim.git', { 'tag': '0.1.1' }
 	Plug 'git@github.com:norcalli/nvim-colorizer.lua.git'
 	Plug 'git@github.com:nvim-lualine/lualine.nvim.git'
