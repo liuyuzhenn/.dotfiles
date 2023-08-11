@@ -66,7 +66,7 @@ telescope.setup({
 			previewer = false,
 			-- preview = true,
 			find_command = {
-				"fd",
+				"fdfind",
 				"-t",
 				"f",
 				"-H",
