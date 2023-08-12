@@ -22,13 +22,20 @@ let g:mkdp_command_for_global = 0
 " set to 1, preview server available to others in your network
 " by default, the server listens on localhost (127.0.0.1)
 " default: 0
-let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_to_the_world = 1
 
 " use custom IP to open preview page
 " useful when you work in remote vim and preview on local browser
 " more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
 " default empty
-let g:mkdp_open_ip = ''
+let g:mkdp_open_ip = '172.18.28.230'
+
+" use a custom port to start server or empty for random
+let g:mkdp_port = '6044'
+" function! g:EchoUrl(url)
+"     :echo a:url
+" endfunction
+" let g:mkdp_browserfunc = 'g:EchoUrl'
 
 " specify browser to open preview page
 " for path with space
@@ -39,7 +46,7 @@ let g:mkdp_browser = 'firefox'
 
 " set to 1, echo preview page url in command line when open preview page
 " default is 0
-let g:mkdp_echo_preview_url = 0
+let g:mkdp_echo_preview_url = 1
 
 " a custom vim function name to open preview page
 " this function will receive url as param
@@ -83,8 +90,6 @@ let g:mkdp_markdown_css = ''
 " like '/Users/username/highlight.css' or expand('~/highlight.css')
 let g:mkdp_highlight_css = ''
 
-" use a custom port to start server or empty for random
-let g:mkdp_port = ''
 
 " preview page title
 " ${name} will be replace with the file name
@@ -92,7 +97,7 @@ let g:mkdp_page_title = '「${name}」'
 
 " recognized filetypes
 " these filetypes will have MarkdownPreview... commands
-let g:mkdp_filetypes = ['markdown']
+let g:mkdp_filetypes = ['markdown', 'text']
 
 
 nmap <F9> <Plug>MarkdownPreviewToggle
