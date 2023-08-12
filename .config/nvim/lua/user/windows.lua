@@ -14,8 +14,8 @@ end
 
 windows.setup({})
 
-vim.o.winwidth = 10
-vim.o.winminwidth = 10
+vim.o.winwidth = 5
+vim.o.winminwidth = 5
 vim.o.equalalways = false
 vim.keymap.set('n', '<leader>m', cmd 'WindowsMaximize')
 vim.keymap.set('n', '<leader>\\', cmd 'WindowsMaximizeVertically')

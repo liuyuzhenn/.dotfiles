@@ -62,8 +62,6 @@ keymap("n", "<leader>q", "<cmd>Lspsaga show_buf_diagnostics<CR>", { silent = tru
 keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true })
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
-
 -- Code action
 keymap({ "n", "v" }, "<leader>aa", "<cmd>Lspsaga code_action<CR>", { silent = true })
 

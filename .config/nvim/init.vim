@@ -124,6 +124,6 @@ lua require('user.bufferline')
 lua require('user.autocmd')
 lua require('user.nvim-cmp')
 lua require('user.lspkind')
-lua require('user.lspsaga')
 lua require('user.lspconfig')
+lua require('user.lspsaga')
 
