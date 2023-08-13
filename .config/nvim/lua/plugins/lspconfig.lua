@@ -99,9 +99,9 @@ return {
 			flags = lsp_flags,
 		})
 
-		lspconfig.clangd.setup({
-			on_attach = on_attach,
-		})
+		-- lspconfig.clangd.setup({
+		-- 	on_attach = on_attach,
+		-- })
 
 		-- lspconfig.html.setup({
 		-- 	on_attach = on_attach,
