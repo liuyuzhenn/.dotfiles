@@ -14,7 +14,7 @@ end, { remap = true })
 
 vim.keymap.set({ "n", "v" }, '<leader>s', '<Cmd>HopChar2<CR>', { silent = true, noremap = true })
 vim.keymap.set({ "n", "v" }, '<leader>j', '<Cmd>HopLine<CR>', { silent = true, noremap = true })
-vim.keymap.set({ "n", "v" }, '<leader>w', '<Cmd>HopWord<CR>', { silent = true, noremap = true })
+vim.keymap.set({ "n", "v" }, '<leader>w', '<Cmd>HopWordCurrentLine<CR>', { silent = true, noremap = true })
 
 hop.setup {
 	quit_key = '<leader>',

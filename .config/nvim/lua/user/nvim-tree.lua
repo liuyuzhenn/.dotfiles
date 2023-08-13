@@ -72,8 +72,8 @@ local function on_attach(bufnr)
 	--
 	-- You will need to insert "your code goes here" for any mappings with a custom action_cb
 	vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
-	vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
-	vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+	-- vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
+	-- vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
 	vim.keymap.set('n', 'cd', api.tree.change_root_to_node, opts('CD'))
 end
 

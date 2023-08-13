@@ -55,7 +55,7 @@ if !exists('g:vscode')
 	"" lsp
 	Plug 'git@github.com:williamboman/mason.nvim.git'
 	Plug 'git@github.com:neovim/nvim-lspconfig.git'
-	Plug 'git@github.com:glepnir/lspsaga.nvim.git', { 'branch': 'main' }
+	Plug 'git@github.com:nvimdev/lspsaga.nvim.git', { 'branch': 'main' }
 
 	" colorscheme
 	Plug 'git@github.com:tanvirtin/monokai.nvim.git'
