@@ -74,6 +74,9 @@ telescope.setup({
 				"!",
 				"-name",
 				"*.pth",
+				"!",
+				"-path",
+				"./experiments/*",
 			},
 			-- preview = true,
 			-- find_command = {
