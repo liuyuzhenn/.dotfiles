@@ -36,7 +36,6 @@ dapui.setup({
 		--   expand = "o",
 		-- }
 	},
-	expand_lines = vim.fn.has("nvim-0.7") == 1,
 	layouts = {
 		{
 			elements = {

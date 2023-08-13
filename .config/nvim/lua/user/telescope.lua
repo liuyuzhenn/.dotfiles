@@ -33,7 +33,6 @@ telescope.setup({
 		},
 		vimgrep_arguments = {
 			os.getenv('HOME') .. "/software/ripgrep/rg",
-			-- "rg",
 			"--color=never",
 			"--no-heading",
 			"--with-filename",

@@ -5,6 +5,7 @@ end
 
 local util = lspconfig.util
 
+
 -- key mappings
 local opts = { noremap = true, silent = true }
 
@@ -45,7 +46,7 @@ lspconfig.pyright.setup({
 	},
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	settings = {
 		Lua = {
