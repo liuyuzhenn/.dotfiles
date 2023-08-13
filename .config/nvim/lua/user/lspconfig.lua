@@ -5,10 +5,9 @@ end
 
 local util = lspconfig.util
 
+
 -- key mappings
 local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
@@ -29,6 +28,7 @@ local lsp_flags = {
 }
 
 lspconfig.pyright.setup({
+	root_dir = util.find_git_ancestor,
 	on_attach = on_attach,
 	flags = lsp_flags,
 	settings = {
@@ -67,7 +67,7 @@ lspconfig.texlab.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	root_dir = util.root_pattern("*.tex"),
-	cmd = { "texlab" }
+	cmd = { "texlab" },
 })
 
 lspconfig.vimls.setup({
