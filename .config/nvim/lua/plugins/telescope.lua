@@ -1,14 +1,14 @@
 return {
-	'git@github.com:nvim-telescope/telescope.nvim.git',
-	tag = '0.1.2',
+	"git@github.com:nvim-telescope/telescope.nvim.git",
+	tag = "0.1.2",
 	dependencies = {
-		'git@github.com:nvim-lua/plenary.nvim.git',
-		'git@github.com:nvim-telescope/telescope-file-browser.nvim.git',
-		'git@github.com:xiyaowong/telescope-emoji.nvim.git',
-		'git@github.com:nvim-telescope/telescope-dap.nvim.git',
-		'git@github.com:benfowler/telescope-luasnip.nvim.git',
-		'git@github.com:dhruvmanila/telescope-bookmarks.nvim.git',
-		'git@github.com:rmagatti/auto-session.git',
+		"git@github.com:nvim-lua/plenary.nvim.git",
+		"git@github.com:nvim-telescope/telescope-file-browser.nvim.git",
+		"git@github.com:xiyaowong/telescope-emoji.nvim.git",
+		"git@github.com:nvim-telescope/telescope-dap.nvim.git",
+		"git@github.com:benfowler/telescope-luasnip.nvim.git",
+		"git@github.com:dhruvmanila/telescope-bookmarks.nvim.git",
+		"git@github.com:rmagatti/auto-session.git",
 		-- 'git@github.com:rmagatti/session-lens.git'
 	},
 	config = function()
@@ -23,6 +23,7 @@ return {
 		end
 
 		local fb_actions = require("telescope").extensions.file_browser.actions
+
 
 		telescope.setup({
 			defaults = {
@@ -83,7 +84,8 @@ return {
 						"fdfind",
 						"-I",
 						"-E",
-						"experiments", "-E",
+						"experiments",
+						"-E",
 						".git",
 						"-E",
 						"__pycache__",
@@ -94,29 +96,29 @@ return {
 				},
 			},
 			extensions = {
-				bookmarks = {
-					-- Available:
-					--  * 'chrome'
-					--  * 'edge'
-					--  * 'firefox'
-					selected_browser = "chrome",
-					-- Either provide a shell command to open the URL
-					url_open_command = nil,
-
-					-- Or provide the plugin name which is already installed
-					-- Available: 'vim_external', 'open_browser'
-					url_open_plugin = "open_browser",
-					-- Show the full path to the bookmark instead of just the bookmark name
-					full_path = true,
-
-					profile_name = "Yuzhen",
-
-					-- Add a column which contains the tags for each bookmark for buku
-					buku_include_tags = false,
-
-					-- Provide debug messages
-					debug = false,
-				},
+				-- bookmarks = {
+				-- 	-- Available:
+				-- 	--  * 'chrome'
+				-- 	--  * 'edge'
+				-- 	--  * 'firefox'
+				-- 	selected_browser = "chrome",
+				-- 	-- Either provide a shell command to open the URL
+				-- 	url_open_command = nil,
+				--
+				-- 	-- Or provide the plugin name which is already installed
+				-- 	-- Available: 'vim_external', 'open_browser'
+				-- 	url_open_plugin = "open_browser",
+				-- 	-- Show the full path to the bookmark instead of just the bookmark name
+				-- 	full_path = true,
+				--
+				-- 	profile_name = "Yuzhen",
+				--
+				-- 	-- Add a column which contains the tags for each bookmark for buku
+				-- 	buku_include_tags = false,
+				--
+				-- 	-- Provide debug messages
+				-- 	debug = false,
+				-- },
 				file_browser = {
 					theme = "dropdown",
 					--path = "%:p:h",
@@ -156,8 +158,17 @@ return {
 		vim.keymap.set("n", "<leader>fc", builtin.grep_string, {})
 		vim.keymap.set("n", "<leader>fb", extensions.file_browser.file_browser, {})
 		vim.keymap.set("n", "<leader>ji", extensions.emoji.emoji, {})
-		vim.keymap.set("n", "<leader>fm", extensions.bookmarks.bookmarks, {})
-		vim.keymap.set("n", "<leader>fs", "<Cmd>SearchSession<CR>", {})
+		-- vim.keymap.set("n", "<leader>fm", extensions.bookmarks.bookmarks, {})
+		-- vim.keymap.set("n", "<leader>fs", "<Cmd>SearchSession<CR>", {})
+
+		-- require("browser_bookmarks").setup({
+		-- 	buku_include_tags = false,
+		-- 	debug = false,
+		-- 	full_path = true,
+		-- 	profile_name = "Yuzhen",
+		-- 	selected_browser = "chrome",
+		-- 	url_open_plugin = "open_browser",
+		-- })
 
 		-- To get telescope-file-browser loaded and woforirking with telescope,
 		-- you need to call load_extension, somewhere after setup function:
@@ -166,7 +177,7 @@ return {
 		telescope.load_extension("dap")
 		-- telescope.load_extension("session-lens")
 		telescope.load_extension("luasnip")
-		telescope.load_extension("bookmarks")
+		-- telescope.load_extension("bookmarks")
 		--require("telescope").extensions.luasnip.luasnip(require("telescope.themes").get_ivy({}))
-	end
+	end,
 }
